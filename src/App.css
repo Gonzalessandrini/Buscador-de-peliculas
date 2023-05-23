@@ -41,3 +41,27 @@ form{
 .movie img {
   border-radius: 30px;
 }
+
+.single-movie {
+  display: flex;
+  gap: 25px;
+  margin: 7% 0 3%;
+  justify-content: center;
+}
+.single-movie .single-info {
+  width: 500px;
+  text-align: left;
+  background-color: #ffffff9e;
+  padding: 13px 25px;
+  border-radius: 15px;
+}
+.single-movie .single-info h2 {
+  font-size: 40px;
+  line-height: 42px;
+  margin-top: 0;
+}
+.single-movie img {
+  border-radius: 15px;
+  object-fit: cover;
+  width: 300px;
+}

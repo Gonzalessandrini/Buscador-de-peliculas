@@ -1,14 +1,21 @@
-import { getSingleMovies } from "../services/singleMovie";
+import { useFetch } from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 
-export const SingleMovie = () => {
-    const {id} = useParams()
-    const {data}= getSingleMovies(id)
+
+
+const SingleMovie = () => {
+    const { id } = useParams();
+    const {isLoading,  data} = useFetch(`&i=${id}`);
+    
+    if (isLoading) {
+        return <div className="loading"></div>
+    }
 
     const { Poster, Title, Plot, Year, Country, Director, Released, Runtime } = data;
 
+
     return ( 
-        
+        !isLoading ?
         <div className="single-movie">
             <img src={Poster} alt={Title} />
             <div className="single-info">
@@ -21,5 +28,8 @@ export const SingleMovie = () => {
                 <p><strong>Year: </strong>{ Year }</p>
             </div>
         </div>
+        : ''
     );
 }
+ 
+export default SingleMovie;

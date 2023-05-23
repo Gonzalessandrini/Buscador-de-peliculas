@@ -3,19 +3,29 @@ import { Link } from "react-router-dom"
 function ListOfMovies ({ movies }) {
 
     return (
+      <div>
+        
       <ul className='movies'>
         {
           movies.map(movie => (
+            
+            
             <li className='movie' key={movie.id}>
+              <Link to={`/movies/${movie.id}`} style={{ color: 'inherit', textDecoration: 'inherit'}}>
               <h3>{movie.title}</h3>
               <p>{movie.year}</p>
               <img src={movie.poster} alt={movie.title} />
+              
+              </Link>
 
                       
             </li>
+            
           ))
         }
       </ul>
+      
+      </div>
     )
   }
   
@@ -30,7 +40,7 @@ function ListOfMovies ({ movies }) {
   
     return (
       hasMovies
-        ? <Link to={`/movies/${id}`}><ListOfMovies movies={movies} /></Link>
+        ? <ListOfMovies movies={movies} />
         : <NoMoviesResults />
     )
   }

@@ -17,7 +17,7 @@ export const searchMovies= async ({search})=>{
               id: movies.imdbID,
               poster: movies.Poster
             }))
-            const singleResponse= await fetch(`https://www.omdbapi.com/?apikey=${APIKEY}&i=${movies.imdbID}`)
+            
     } catch(e){
         throw new Error('Error searching movies')
     }

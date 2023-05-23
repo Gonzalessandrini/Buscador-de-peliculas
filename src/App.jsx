@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback,  useState } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import './App.css'
 import debounce from 'just-debounce-it'
 
 import {Movies} from './components/Movies'
-import { SingleMovie } from './components/singleMovie'
+import SingleMovie from './components/SingleMovie'
 
 import { useMovies } from './hooks/useMovies'
 import { useSearch } from './hooks/useSearch'
@@ -58,8 +58,9 @@ const handleSort=()=>{
         :(
           <BrowserRouter>
           <Routes>
+          <Route path='/movies/:id' element={<SingleMovie  />}/>
             <Route path='/' element={<Movies movies={movies} />} />
-            <Route path='/movies/:id' element={<SingleMovie  />}/>
+            
           </Routes>
         
         </BrowserRouter>
